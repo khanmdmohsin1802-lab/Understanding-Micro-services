@@ -1,0 +1,54 @@
+2026-06-01T16:42:39.233Z [ERROR]: Error: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "path": [
+      "body",
+      "showtimes",
+      0,
+      "price"
+    ],
+    "message": "Invalid input: expected number, received null"
+  }
+] 
+stack: ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "path": [
+      "body",
+      "showtimes",
+      0,
+      "price"
+    ],
+    "message": "Invalid input: expected number, received null"
+  }
+]
+    at file:///Users/mohsinkhan/Desktop/microservices/catalog-services/middlewares/validateRequest.js:4:39
+    at Layer.handleRequest (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/lib/layer.js:152:17)
+    at /Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/index.js:295:15
+    at processParams (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/index.js:582:12)
+    at next (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/index.js:291:5)
+    at Function.handle (/Users/mohsinkhan/Desktop/microservices/catalog-services/node_modules/router/index.js:186:3)
+2026-06-01T16:44:30.100Z [INFO]: health route was acsessed
+2026-06-01T16:45:00.180Z [INFO]: health route was acsessed
+2026-06-01T16:46:00.750Z [INFO]: health route was acsessed
+
+2026-06-01T17:28:06.957Z [INFO]: health route was acsessed
+
+{"level":"info","message":"health route was acsessed\n","timestamp":"2026-06-02T17:03:51.261Z"}
+{"level":"info","message":"health route was acsessed\n","timestamp":"2026-06-02T17:06:45.855Z"}
+{"level":"info","message":"health route was acsessed","timestamp":"2026-06-02T17:10:01.573Z"}
+{"id":"hello","level":"info","message":"health route was acsessed","timestamp":"2026-06-02T17:11:52.490Z"}
+{"level":"info","message":"health route was acsessed","route":"/health","service":"CATALOG-SERVICE","timestamp":"2026-06-02T17:14:09.971Z"}
+{"level":"info","message":"health route was acsessed","route":"/health","service":"CATALOG-SERVICE","timestamp":"2026-06-02T17:18:32.346Z"}
+{"level":"info","message":"health route was acsessed","route":"/health","service":"Catalog-Service","timestamp":"2026-06-02T18:53:42.300Z"}
+{"environment":"development","level":"info","message":"health route was acsessed","route":"/health","service":"Catalog-Service","timestamp":"2026-06-02T18:59:25.084Z"}
+{"environment":"development","level":"info","message":"health route was acsessed","route":"/health","service":"catalog-service","timestamp":"2026-06-03T11:03:32.957Z"}
+{"environment":"development","level":"debug","message":"debug log","service":"catalog-service","timestamp":"2026-06-03T11:03:32.959Z"}
+{"environment":"development","level":"info","message":"health route was acsessed","route":"/health","service":"catalog-service","timestamp":"2026-06-03T12:14:11.481Z"}
+{"environment":"development","level":"debug","message":"debug log","service":"catalog-service","timestamp":"2026-06-03T12:14:11.483Z"}

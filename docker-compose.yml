@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres-user-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: user_service_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  mongodb-catalog:
+    image: mongo:6.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secretpassword
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodata_v3:/data/db
+
+volumes:
+  pgdata:
+  mongodata_v2:
+  mongodata_v3:
