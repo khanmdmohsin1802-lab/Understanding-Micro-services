@@ -136,18 +136,18 @@ Each service has its own `.env` file. Create them from the examples below:
 **`user-service/.env`**
 ```env
 PORT=6001
-DB_USER=admin
-DB_HOST=localhost
-DB_NAME=user_service_db
-DB_PASSWORD=secretpassword
-DB_PORT=5432
-JWT_SECRET=your_jwt_secret_here
+DB_USER=<your_db_user>
+DB_HOST=<your_db_host>
+DB_NAME=<your_db_name>
+DB_PASSWORD=<your_db_password>
+DB_PORT=<your_db_port>
+JWT_SECRET=<your_jwt_secret>
 ```
 
 **`catalog-services/.env`**
 ```env
 PORT=6002
-MONGO_URI=mongodb://admin:secretpassword@localhost:27018/catalog_db?authSource=admin
+MONGO_URI=<your_mongodb_connection_string>
 ```
 
 ### 3. Install dependencies
@@ -185,7 +185,3 @@ The services will start on `http://localhost:6001` and `http://localhost:6002` r
 Follow along with the development journey of this project on the blog:
 
 👉 **[https://learnbybuilding.hashnode.dev/](https://learnbybuilding.hashnode.dev/)**
-
-## License
-
-ISC
