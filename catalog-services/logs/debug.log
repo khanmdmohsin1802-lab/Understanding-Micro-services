@@ -1,4 +1,0 @@
-{"environment":"development","level":"info","message":"health route was acsessed","route":"/health","service":"catalog-service","timestamp":"2026-06-03T11:03:32.957Z"}
-{"environment":"development","level":"debug","message":"debug log","service":"catalog-service","timestamp":"2026-06-03T11:03:32.959Z"}
-{"environment":"development","level":"info","message":"health route was acsessed","route":"/health","service":"catalog-service","timestamp":"2026-06-03T12:14:11.481Z"}
-{"environment":"development","level":"debug","message":"debug log","service":"catalog-service","timestamp":"2026-06-03T12:14:11.483Z"}
