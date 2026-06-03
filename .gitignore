@@ -3,6 +3,7 @@ node_modules/
 logs/
 *.logs
 notes/
+everyday_track/
 blog/
 sofar.md 
 PROJECT_ANALYSIS.md 
