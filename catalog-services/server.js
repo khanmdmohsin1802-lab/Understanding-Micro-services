@@ -25,7 +25,7 @@ app.get("/health", async (req, res) => {
 
 app.use("/api/v1/catalog", catalogRoutes);
 
-const PORT = config.port || 6002;
+const PORT = config.port;
 
 connectDB();
 
