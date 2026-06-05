@@ -6,24 +6,20 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import AppError from "./errors/appError.js";
 import { requestLogger } from "./middlewares/requestLogger.js";
 import logger from "./utils/logger.js";
-import correlationId from "./middlewares/correlationId.js";
+import correlationIdMiddleware from "./middlewares/correlationId.js";
+import asyncLocalStorage from "./utils/requestContext.js";
 
 const app = express();
 app.use(express.json());
 
-app.use(correlationId);
+app.use(correlationIdMiddleware);
 
 app.use(requestLogger);
 
 // ------ testing route ------
-app.get("/health", (req, res) => {
-  logger.info("health route was acsessed", {
-    route: req.url,
-  });
-  logger.debug("debug log");
-  res
-    .status(200)
-    .json({ message: "perfect", correlationId: req.correlationId });
+app.get("/health", async (req, res) => {
+  logger.info("Health route running perfectly");
+  res.status(200).json({ message: "perfect" });
 });
 
 app.use("/api/v1/catalog", catalogRoutes);

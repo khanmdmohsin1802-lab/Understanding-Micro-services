@@ -1,4 +1,14 @@
 import winston from "winston";
+import asyncLocalStorage from "./requestContext.js";
+
+const correlatiodIdFormate = winston.format((info) => {
+  const store = asyncLocalStorage.getStore();
+
+  if (store?.correlationId) {
+    info.correlationId = store.correlationId;
+  }
+  return info;
+});
 
 const logger = winston.createLogger({
   level: process.env.NODE_ENV === "production" ? "info" : "debug",
@@ -7,9 +17,10 @@ const logger = winston.createLogger({
     service: process.env.SERVICE_NAME,
     environment: process.env.NODE_ENV,
   },
+
   format: winston.format.combine(
     winston.format.timestamp(),
-
+    correlatiodIdFormate(),
     winston.format.json(),
   ),
 
