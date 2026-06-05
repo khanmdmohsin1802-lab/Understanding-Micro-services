@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import config from "./index.js";
 import "dotenv/config";
 
 const connectDB = async () => {
   try {
     console.time("DB Connection Time");
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(config.mongoUri);
     console.timeEnd("DB Connection Time");
 
     console.log("MongoDB connected successfully");

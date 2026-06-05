@@ -1,4 +1,5 @@
 import "dotenv/config";
+import config from "./config/index.js";
 import express from "express";
 import connectDB from "./config/db.js";
 import catalogRoutes from "./routes/catalogRoutes.js";
@@ -24,7 +25,7 @@ app.get("/health", async (req, res) => {
 
 app.use("/api/v1/catalog", catalogRoutes);
 
-const PORT = process.env.PORT || 6002;
+const PORT = config.port || 6002;
 
 connectDB();
 
