@@ -15,7 +15,9 @@ app.use(express.json());
 
 app.use(correlationIdMiddleware);
 
-app.use(requestLogger);
+if (config.enableRequestLogging) {
+  app.use(requestLogger);
+}
 
 // ------ testing route ------
 app.get("/health", async (req, res) => {

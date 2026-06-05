@@ -8,7 +8,7 @@ const getAllEvents = async () => {
 };
 
 const CreateNewEvents = async (eventData) => {
-  return await createEvent();
+  return await createEvent(eventData);
 };
 
 export { getAllEvents, CreateNewEvents };

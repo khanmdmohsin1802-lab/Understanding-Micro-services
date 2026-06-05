@@ -6,6 +6,20 @@ const envSchema = z.object({
   MONGO_URI: z.string().min(1).startsWith("mongodb"),
   NODE_ENV: z.enum(["development", "production", "staging"]),
   SERVICE_NAME: z.string().min(1),
+  ENABLE_REQUEST_LOGGING: z
+    .preprocess((val) => {
+      if (val === "true") return true;
+      if (val === "false") return false;
+      return val;
+    }, z.boolean())
+    .default(false),
+  ENABLE_CREATE_EVENT: z
+    .preprocess((val) => {
+      if (val === "true") return true;
+      if (val === "false") return false;
+      return val;
+    }, z.boolean())
+    .default(false),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -21,6 +35,8 @@ const config = {
   mongoUri: result.data.MONGO_URI,
   nodeEnv: result.data.NODE_ENV,
   serviceName: result.data.SERVICE_NAME,
+  enableRequestLogging: result.data.ENABLE_REQUEST_LOGGING,
+  enableCreateEvent: result.data.ENABLE_CREATE_EVENT,
 };
 
 export default config;
