@@ -2,7 +2,7 @@ import winston from "winston";
 import config from "../config/index.js";
 import asyncLocalStorage from "./requestContext.js";
 
-const correlatiodIdFormate = winston.format((info) => {
+const correlatiodIdFormat = winston.format((info) => {
   const store = asyncLocalStorage.getStore();
 
   if (store?.correlationId) {
@@ -21,7 +21,7 @@ const logger = winston.createLogger({
 
   format: winston.format.combine(
     winston.format.timestamp(),
-    correlatiodIdFormate(),
+    correlatiodIdFormat(),
     winston.format.json(),
   ),
 
