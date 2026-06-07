@@ -4,12 +4,18 @@ import {
   handleCreateEvents,
 } from "../controllers/catalogController.js";
 import validateRequest from "../middlewares/validateRequest.js";
-import {createEventSchema} from "../schemas/catalogSchema.js";
+import { createEventSchema } from "../schemas/catalogSchema.js";
+import { writeLimiter } from "../middlewares/rateLimiter.js";
 
 const router = express.Router();
 
 router.get("/", getEvents);
 
-router.post("/", validateRequest(createEventSchema), handleCreateEvents);
+router.post(
+  "/",
+  writeLimiter,
+  validateRequest(createEventSchema),
+  handleCreateEvents,
+);
 
 export default router;

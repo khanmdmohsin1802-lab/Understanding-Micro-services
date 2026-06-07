@@ -9,13 +9,17 @@ import { requestLogger } from "./middlewares/requestLogger.js";
 import logger from "./utils/logger.js";
 import correlationIdMiddleware from "./middlewares/correlationId.js";
 import asyncLocalStorage from "./utils/requestContext.js";
+import { globalLimiter } from "./middlewares/rateLimiter.js";
 
 let isReady = false;
 
 const app = express();
-app.use(express.json());
 
 app.use(correlationIdMiddleware);
+
+app.use(globalLimiter);
+
+app.use(express.json());
 
 if (config.enableRequestLogging) {
   app.use(requestLogger);
