@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import config from "./index.js";
+import logger from "../utils/logger.js";
 import "dotenv/config";
 
 const connectDB = async () => {
@@ -15,4 +16,9 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+const disconnectDB = async () => {
+  await mongoose.disconnect();
+  logger.info("MongoDB connection closed successfully");
+};
+
+export { connectDB, disconnectDB };
