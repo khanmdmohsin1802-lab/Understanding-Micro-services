@@ -10,10 +10,13 @@ import logger from "./utils/logger.js";
 import correlationIdMiddleware from "./middlewares/correlationId.js";
 import asyncLocalStorage from "./utils/requestContext.js";
 import { globalLimiter } from "./middlewares/rateLimiter.js";
+import helmet from "helmet";
 
 let isReady = false;
 
 const app = express();
+
+app.use(helmet());
 
 app.use(correlationIdMiddleware);
 
