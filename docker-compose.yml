@@ -20,8 +20,21 @@ services:
       - "27018:27017"
     volumes:
       - mongodata_v3:/data/db
+  
+  postgres-booking-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: booking_service_db
+    ports:
+      - "5433:5432"  # Exposed on 5433 locally
+    volumes:
+      - pgdata_booking:/var/lib/postgresql/data
+
 
 volumes:
   pgdata:
   mongodata_v2:
   mongodata_v3:
+  pgdata_booking:
