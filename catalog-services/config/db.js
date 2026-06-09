@@ -5,9 +5,11 @@ import "dotenv/config";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(config.mongoUri);
+    await mongoose.connect(config.mongoUri, {
+      maxPoolSize: config.maxPoolSize,
+    });
     logger.info("MongoDB connected successfully");
-    return true
+    return true;
   } catch (error) {
     logger.error("mongoDB connection error: ", error);
     process.exit(1);

@@ -20,6 +20,7 @@ const envSchema = z.object({
       return val;
     }, z.boolean())
     .default(false),
+  MAX_POOL_SIZE: z.number().min(1).max,
 });
 
 const result = envSchema.safeParse(process.env);
@@ -37,6 +38,7 @@ const config = {
   serviceName: result.data.SERVICE_NAME,
   enableRequestLogging: result.data.ENABLE_REQUEST_LOGGING,
   enableCreateEvent: result.data.ENABLE_CREATE_EVENT,
+  maxPoolSize: result.data.MAX_POOL_SIZE,
 };
 
 export default config;
