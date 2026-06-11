@@ -26,4 +26,4 @@ const getBookingByIdController = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Booking retrived Successfully", booking));
 });
 
-const { createBookingController, getBookingByIdController };
+export { createBookingController, getBookingByIdController };
