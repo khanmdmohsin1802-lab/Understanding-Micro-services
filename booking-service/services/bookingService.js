@@ -32,4 +32,4 @@ class BookingService {
   }
 }
 
-export default BookingService();
+export default new BookingService();

@@ -22,8 +22,8 @@ const getBookingByIdController = asyncHandler(async (req, res) => {
   const booking = await bookingService.getBookingById(id);
 
   res
-    .status(200)
-    .json(new ApiResponse(200, "Booking retrived Successfully", booking));
+    .status(201)
+    .json(new ApiResponse(201, "Booking retrived Successfully", booking));
 });
 
 export { createBookingController, getBookingByIdController };
