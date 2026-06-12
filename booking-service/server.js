@@ -1,4 +1,5 @@
 import "dotenv/config";
+import config from "./config/index.js";
 import express from "express";
 import { connectDB, disconnectDB } from "./config/db.js";
 import bookingRoute from "./routes/bookingRoute.js";
@@ -50,7 +51,7 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT;
+const PORT = config.port;
 
 const server = app.listen(PORT, () => {
   logger.info("server started successfully", {
